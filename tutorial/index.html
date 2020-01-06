@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js App</title>
+  <link href="main.css" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <!-- この#appの内側にテンプレートを書き込んでいく -->
+    <p><button v-on:click="show=!show">切り替え</button></p>
+    <transition
+      v-on:before-enter="beforeEnter"
+      v-on:enter="enter"
+      v-on:after-enter="afterEnter"
+      v-on:enter-cancelled="enterCancelled"
+      v-on:before-leave="beforeLeave"
+      v-on:leave="leave"
+      v-on:after-leave="afterLeave"
+      v-on:leave-cancelled="leaveCancelled">
+      <div v-if="show">example</div>
+    </transition>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.9/lodash.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
